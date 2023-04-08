@@ -68,7 +68,7 @@ public static class utils {
 $DEFAULT_TRANSITION_DELAY = 1000
 $DEFAULT_KEY_PRESS_DELAY = 200
 
-function isFFXI() {
+function isFFXIV() {
   return [utils]::GetForegroundClassName() -eq "FFXIVGAME"
 }
 
@@ -78,12 +78,12 @@ function employees($index) {
     for ($e = $index; $e -le 9; $e = $e + 1) {
         for($i = 1; $i -lt 3; $i = $i + 1) {
             Write-Host "雇员{$e} → 未选中状态"
-            if (-not(isFFXI)) { return }
+            if (-not(isFFXIV)) { return }
             [user32]::SetCursorPos(0, 0) | Out-Null
             Start-Sleep -Milliseconds $DEFAULT_KEY_PRESS_DELAY
 
             Write-Host "未选中状态 → 雇员{1}: [System.Windows.Forms.Keys]::Left"
-            if (-not(isFFXI)) { return }
+            if (-not(isFFXIV)) { return }
             [utils]::KeyPress([System.Windows.Forms.Keys]::Left);
             Start-Sleep -Milliseconds $DEFAULT_KEY_PRESS_DELAY
         }
@@ -91,95 +91,95 @@ function employees($index) {
         <# 雇员列表 → 雇员$index #>
         for($i = 1; $i -lt $e; $i = $i + 1) {
             Write-Host "雇员列表{$i} → 雇员{$i + 1} [System.Windows.Forms.Keys]::Down"
-            if (-not(isFFXI)) { return }
+            if (-not(isFFXIV)) { return }
             [utils]::KeyPress([System.Windows.Forms.Keys]::Down);
             Start-Sleep -Milliseconds $DEFAULT_KEY_PRESS_DELAY
         }
 
         Write-Host "雇员{$e} → 雇员：哟！我来了: [System.Windows.Forms.Keys]::NumPad0"
-        if (-not(isFFXI)) { return }
+        if (-not(isFFXIV)) { return }
         [utils]::KeyPress([System.Windows.Forms.Keys]::NumPad0)
         Start-Sleep -Milliseconds $DEFAULT_TRANSITION_DELAY
 
         Write-Host "雇员{$e} → 哟！我来了: 有什么指示？ [System.Windows.Forms.Keys]::NumPad0"
-        if (-not(isFFXI)) { return }
+        if (-not(isFFXIV)) { return }
         [utils]::KeyPress([System.Windows.Forms.Keys]::NumPad0)
         Start-Sleep -Milliseconds $DEFAULT_TRANSITION_DELAY
 
         for($i = 1; $i -lt 3; $i = $i + 1) {
             Write-Host "雇员{$e}: 有什么指示？ → 未选中状态"
-            if (-not(isFFXI)) { return }
+            if (-not(isFFXIV)) { return }
             [user32]::SetCursorPos(0, 0) | Out-Null
             Start-Sleep -Milliseconds $DEFAULT_KEY_PRESS_DELAY
 
             Write-Host "雇员{$e}: 有什么指示？ → 道具管理: [System.Windows.Forms.Keys]::Left"
-            if (-not(isFFXI)) { return }
+            if (-not(isFFXIV)) { return }
             [utils]::KeyPress([System.Windows.Forms.Keys]::Left)
             Start-Sleep -Milliseconds $DEFAULT_KEY_PRESS_DELAY
         }
 
         Write-Host "雇员{$e}: 道具管理 → 金币管理: [System.Windows.Forms.Keys]::Down"
-        if (-not(isFFXI)) { return }
+        if (-not(isFFXIV)) { return }
         [utils]::KeyPress([System.Windows.Forms.Keys]::Down)
         Start-Sleep -Milliseconds $DEFAULT_KEY_PRESS_DELAY
 
         Write-Host "雇员{$e}: 金币管理 → 出售（玩家所持物品）: [System.Windows.Forms.Keys]::Down"
-        if (-not(isFFXI)) { return }
+        if (-not(isFFXIV)) { return }
         [utils]::KeyPress([System.Windows.Forms.Keys]::Down)
         Start-Sleep -Milliseconds $DEFAULT_KEY_PRESS_DELAY
 
         Write-Host "雇员{$e}: 出售（玩家所持物品） → 出售（雇员所持物品）: [System.Windows.Forms.Keys]::Down"
-        if (-not(isFFXI)) { return }
+        if (-not(isFFXIV)) { return }
         [utils]::KeyPress([System.Windows.Forms.Keys]::Down)
         Start-Sleep -Milliseconds $DEFAULT_KEY_PRESS_DELAY
 
         Write-Host "雇员{$e}: 出售（雇员所持物品） → 查看出售记录: [System.Windows.Forms.Keys]::Down"
-        if (-not(isFFXI)) { return }
+        if (-not(isFFXIV)) { return }
         [utils]::KeyPress([System.Windows.Forms.Keys]::Down)
         Start-Sleep -Milliseconds $DEFAULT_KEY_PRESS_DELAY
 
         Write-Host "雇员{$e}: 查看出售记录 → 查看雇员探险情况: [System.Windows.Forms.Keys]::Down"
-        if (-not(isFFXI)) { return }
+        if (-not(isFFXIV)) { return }
         [utils]::KeyPress([System.Windows.Forms.Keys]::Down)
         Start-Sleep -Milliseconds $DEFAULT_KEY_PRESS_DELAY
 
         Write-Host "雇员{$e}: 查看雇员探险情况 → 探险情况: [System.Windows.Forms.Keys]::NumPad0"
-        if (-not(isFFXI)) { return }
+        if (-not(isFFXIV)) { return }
         [utils]::KeyPress([System.Windows.Forms.Keys]::NumPad0)
         Start-Sleep -Milliseconds $DEFAULT_TRANSITION_DELAY
 
         Write-Host "雇员{$e}: 探险情况 → 重新委托: [System.Windows.Forms.Keys]::Left"
-        if (-not(isFFXI)) { return }
+        if (-not(isFFXIV)) { return }
         [utils]::KeyPress([System.Windows.Forms.Keys]::Left)
         Start-Sleep -Milliseconds $DEFAULT_KEY_PRESS_DELAY
 
         Write-Host "雇员{$e}: 重新委托 → 探险详情: [System.Windows.Forms.Keys]::NumPad0"
-        if (-not(isFFXI)) { return }
+        if (-not(isFFXIV)) { return }
         [utils]::KeyPress([System.Windows.Forms.Keys]::NumPad0)
         Start-Sleep -Milliseconds $DEFAULT_TRANSITION_DELAY
 
         Write-Host "雇员{$e}: 探险详情 → 委托: [System.Windows.Forms.Keys]::Left"
-        if (-not(isFFXI)) { return }
+        if (-not(isFFXIV)) { return }
         [utils]::KeyPress([System.Windows.Forms.Keys]::Left)
         Start-Sleep -Milliseconds $DEFAULT_KEY_PRESS_DELAY
 
         Write-Host "雇员{$e}: 委托 → 我知道了 [System.Windows.Forms.Keys]::NumPad0"
-        if (-not(isFFXI)) { return }
+        if (-not(isFFXIV)) { return }
         [utils]::KeyPress([System.Windows.Forms.Keys]::NumPad0)
         Start-Sleep -Milliseconds $DEFAULT_TRANSITION_DELAY
 
         Write-Host "雇员{$e}: 我知道了 → 有什么指示？[System.Windows.Forms.Keys]::Escape"
-        if (-not(isFFXI)) { return }
+        if (-not(isFFXIV)) { return }
         [utils]::KeyPress([System.Windows.Forms.Keys]::NumPad0)
         Start-Sleep -Milliseconds $DEFAULT_TRANSITION_DELAY
 
         Write-Host "雇员{$e}: 有什么指示？ → 再见了: [System.Windows.Forms.Keys]::Escape"
-        if (-not(isFFXI)) { return }
+        if (-not(isFFXIV)) { return }
         [utils]::KeyPress([System.Windows.Forms.Keys]::Escape)
         Start-Sleep -Milliseconds $DEFAULT_TRANSITION_DELAY
 
         Write-Host "雇员{$e}: 再见了 → 雇员列表: [System.Windows.Forms.Keys]::Escape"
-        if (-not(isFFXI)) { return }
+        if (-not(isFFXIV)) { return }
         [utils]::KeyPress([System.Windows.Forms.Keys]::Escape)
         Start-Sleep -Milliseconds $DEFAULT_TRANSITION_DELAY
     }
